@@ -1,25 +1,20 @@
 /**
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- * $Id$ TipoMueble.java
- * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación
- * Licenciado bajo el esquema Academic Free License version 3.0
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ $Id$
+ * TipoMueble.java Universidad de los Andes (Bogotá - Colombia) Departamento de
+ * Ingeniería de Sistemas y Computación Licenciado bajo el esquema Academic Free
+ * License version 3.0
  *
  * Ejercicio: Muebles de los Alpes
- * 
+ *
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
-
 package com.losalpes.entities;
-
-import javax.persistence.Entity;
 
 /**
  * Clase de enumeración con los tipos de muebles en el sistema
- * 
+ *
  */
-@Entity
-public enum TipoMueble
-{
+public enum TipoMueble {
+
     Interior, Exterior
 }
