@@ -12,6 +12,7 @@ package com.losalpes.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,11 +31,10 @@ public class Usuario implements Serializable {
     //-----------------------------------------------------------
     // Atributos
     //-----------------------------------------------------------
-    @Id
-    private Long id;
     /**
      * Nombre del usuario
      */
+    @Id
     private String login;
 
     /**
@@ -106,7 +106,7 @@ public class Usuario implements Serializable {
      * Devuelve un lista con todos las compras del usuario
      */
     @OneToMany(mappedBy = "comprador")
-    private ArrayList<RegistroVenta> compras;
+    private List<RegistroVenta> compras;
 
     //-----------------------------------------------------------
     // Constructores
@@ -356,7 +356,7 @@ public class Usuario implements Serializable {
      *
      * @return compras Lista con las compras realizadas por el cliente
      */
-    public ArrayList<RegistroVenta> getCompras() {
+    public List<RegistroVenta> getCompras() {
         return compras;
     }
 
@@ -365,7 +365,7 @@ public class Usuario implements Serializable {
      *
      * @param compras Nueva lista de compras
      */
-    public void setCompras(ArrayList<RegistroVenta> compras) {
+    public void setCompras(List<RegistroVenta> compras) {
         this.compras = compras;
     }
 
@@ -395,19 +395,4 @@ public class Usuario implements Serializable {
     public void setSeleccion(Boolean seleccion) {
         this.seleccion = seleccion;
     }
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
-
 }

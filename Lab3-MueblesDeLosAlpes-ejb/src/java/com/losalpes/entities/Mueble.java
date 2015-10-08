@@ -14,7 +14,10 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Clase que representa la información de un mueble en el sistema
@@ -27,6 +30,8 @@ public class Mueble implements Serializable {
     // Atributos
     //-----------------------------------------------------------
     @Id
+    @SequenceGenerator(name = "SeqMueble")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SeqMueble")
     private Long id;
     /**
      * Referencia que identifica el modelo del mueble en el sistema.
@@ -143,7 +148,7 @@ public class Mueble implements Serializable {
      *
      * @return referencia Referencia del mueble
      */
-    public long getReferencia() {
+    public Long getReferencia() {
         return referencia;
     }
 
