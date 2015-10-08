@@ -12,10 +12,13 @@
 
 package com.losalpes.entities;
 
+import javax.persistence.Entity;
+
 /**
  * Clase de enumeración con los tipos de muebles en el sistema
  * 
  */
+@Entity
 public enum TipoDocumento
 {
     CC,TarjetaIdentidad

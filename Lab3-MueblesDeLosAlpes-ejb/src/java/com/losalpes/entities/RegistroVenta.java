@@ -13,11 +13,14 @@
 package com.losalpes.entities;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Clase que modela un registro de venta realizado por un cliente
  * 
  */
+@Entity
 public class RegistroVenta
 {
 
@@ -25,6 +28,8 @@ public class RegistroVenta
     // Atributos
     //-----------------------------------------------------------
     
+    @Id
+    private Long id;
     /**
      * Fecha en la que se vendió el producto
      */
@@ -49,6 +54,7 @@ public class RegistroVenta
      * Usuario que compró el producto
      */
     private Usuario comprador;
+    
 
     //-----------------------------------------------------------
     // Constructor
@@ -171,6 +177,14 @@ public class RegistroVenta
     public void setComprador(Usuario comprador)
     {
         this.comprador = comprador;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

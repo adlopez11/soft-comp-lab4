@@ -12,10 +12,15 @@
 
 package com.losalpes.entities;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Clase que representa la información de un mueble en el sistema
  * 
  */
+@Entity
 public class Mueble
 {
 
@@ -23,6 +28,8 @@ public class Mueble
     // Atributos
     //-----------------------------------------------------------
 
+    @Id
+    private Long id;
     /**
      * Referencia que identifica el modelo del mueble en el sistema.
      */
@@ -62,6 +69,7 @@ public class Mueble
      * Indica si el mueble fue seleccionado
      */
     private boolean seleccion;
+    
 
     //-----------------------------------------------------------
     // Constructores
@@ -260,5 +268,13 @@ public class Mueble
     {
         cantidad--;
     } 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
 }

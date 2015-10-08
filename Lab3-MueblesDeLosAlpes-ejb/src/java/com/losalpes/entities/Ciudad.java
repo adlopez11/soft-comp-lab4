@@ -12,10 +12,14 @@
 
 package com.losalpes.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Clase que representa una ciudad en el sistema
  * 
  */
+@Entity
 public class Ciudad
 {
       
@@ -23,10 +27,14 @@ public class Ciudad
     // Atributos
     //-----------------------------------------------------------
 
+    @Id
+    private Long id;
+    
     /**
      * Nombre de la ciudad
      */
     private String nombre;
+    
 
     /**
      * Devuelve el nombre de la ciudad
@@ -69,6 +77,14 @@ public class Ciudad
     public void setNombre(String nombre)
     {
         this.nombre = nombre;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

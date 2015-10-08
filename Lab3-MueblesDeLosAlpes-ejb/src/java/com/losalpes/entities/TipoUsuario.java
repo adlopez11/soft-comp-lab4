@@ -12,10 +12,13 @@
 
 package com.losalpes.entities;
 
+import javax.persistence.Entity;
+
 /**
  * Clase de enumeración con los tipos de usuarios en el sistema
  * 
  */
+@Entity
 public enum TipoUsuario
 {
     Administrador,Cliente

@@ -12,11 +12,14 @@
 package com.losalpes.entities;
 
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Clase que representa un país en el sistema
  * 
  */
+@Entity
 public class Pais
 {
 
@@ -24,6 +27,8 @@ public class Pais
     // Atributos
     //-----------------------------------------------------------
     
+    @Id
+    private Long id;
     /**
      * Nombre del país
      */
@@ -94,6 +99,14 @@ public class Pais
     public void setCiudades(List<Ciudad> ciudades)
     {
         this.ciudades = ciudades;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

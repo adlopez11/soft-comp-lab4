@@ -13,11 +13,14 @@
 package com.losalpes.entities;
 
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Clase que representa un usuario del sistema
  * 
  */
+@Entity
 public class Usuario
 {
 
@@ -25,6 +28,8 @@ public class Usuario
     // Atributos
     //-----------------------------------------------------------
 
+    @Id
+    private Long id;
     /**
      * Nombre del usuario
      */
