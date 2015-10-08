@@ -15,6 +15,8 @@ import com.losalpes.excepciones.OperacionInvalidaException;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Implementación de los servicios de persistencia
@@ -30,12 +32,14 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     /**
      * La entidad encargada de persistir en la base de datos
      */
-    //TODO
+    @PersistenceContext
+    private EntityManager em;
 
     //-----------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------
 
+         
     /**
      * Constructor de la clase. Inicializa los atributos.
      */
@@ -55,7 +59,7 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     @Override
     public void create(Object obj) throws OperacionInvalidaException
     {
-       //TODO
+       em.persist(obj);
     }
 
     /**
@@ -65,7 +69,7 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     @Override
     public void update(Object obj)
     {
-       //TODO
+       em.merge(obj);
     }
 
     /**
@@ -75,7 +79,7 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     @Override
     public void delete(Object obj) throws OperacionInvalidaException
     {
-       //TODO
+       em.remove(obj);
 
     }
 
@@ -87,8 +91,7 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     @Override
     public List findAll(Class c)
     {
-        return null;
-        //return entityManager.createQuery("select O from " + c.getSimpleName() + " as O").getResultList();
+       return em.createQuery("select O from " + c.getSimpleName() + " as O").getResultList();
     }
 
     /**
@@ -100,7 +103,6 @@ public class ServicioPersistencia implements IServicioPersistenciaMockLocal,ISer
     @Override
     public Object findById(Class c, Object id)
     {
-        //TODO
-        return null;
+        return em.find(c, id);
     }
 }
