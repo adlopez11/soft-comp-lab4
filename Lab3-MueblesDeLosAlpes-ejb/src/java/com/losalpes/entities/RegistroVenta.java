@@ -16,6 +16,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 
 /**
@@ -23,6 +25,11 @@ import javax.persistence.Temporal;
  *
  */
 @Entity
+@NamedQueries({ 
+    @NamedQuery(  name="RegistroVenta.findAllSalesByUser", query="SELECT rv.fechaVenta, rv.producto.nombre, rv.cantidad, rv.producto.precio FROM RegistroVenta rv WHERE rv.comprador.id = ?1 " ),
+    @NamedQuery(  name="RegistroVenta.findFornitureBestsellers", query="SELECT rv.producto.nombre, SUM(rv.cantidad) cantidad FROM RegistroVenta rv  GROUP BY rv.producto ORDER BY 2 DESC " ),
+    @NamedQuery(  name="Usuario.findTopSalesByUser", query="SELECT rv.comprador.nombreCompleto, rv.comprador.login, COUNT(rv) cantidad, SUM(rv.producto.precio*rv.cantidad) FROM RegistroVenta rv WHERE rv.comprador.ciudad.pais.id = ?1 GROUP BY rv.comprador" )
+})
 public class RegistroVenta implements Serializable {
 
     //-----------------------------------------------------------
